@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "JohnCBorden 8/31/2017 17:37",
+	"super" : "Object",
+	"category" : "StringClassifier",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"changeValuesToMatches"
+	],
+	"name" : "StringClassifier",
+	"type" : "normal"
+}
