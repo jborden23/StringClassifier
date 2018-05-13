@@ -1,2 +1,2 @@
 SystemOrganization addCategory: #StringClassifier!
-SystemOrganization addCategory: 'StringClassifier-tests'!
+SystemOrganization addCategory: #'StringClassifier-tests'!
