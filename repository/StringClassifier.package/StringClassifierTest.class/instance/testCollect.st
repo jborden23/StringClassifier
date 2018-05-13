@@ -6,4 +6,4 @@ testCollect
 	classifier addChangeValuesToMatches: [ :string | 3 ].
 	self
 		deny: (classifier changeValuesToMatchesCollectOn: 'test') isEmpty;
-		assert: (classifier changeValuesToMatchesCollectOn: 'test') first = 3
+		assert: (classifier changeValuesToMatchesCollectOn: 'test') first equals: 3
