@@ -4,7 +4,7 @@ testBestMatchForMatches
 	classifier := StringClassifier new.
 	classifier
 		addChangeValuesToMatches: [ :string | (string alike: 'FirstOne') / 3 ];
-		addChangeValuesToMatches: [ :string | (string alike: 'secnd') / 3 ];
+		addChangeValuesToMatches: [ :string | (string alike: 'second') / 3 ];
 		addChangeValuesToMatches: [ :string | (string alike: '3rd') / 3 ].
 	self
 		assert: (classifier bestMatchIndexesFor: #('3rd' '3rd' 'FirstOne')) third equals: 1;
