@@ -3,4 +3,6 @@ I am used to classify strings into a small set of groups, based on a set of bloc
     Instance Variables
 	changeValuesToMatches:		<Collection of single argument blocks, value is a percent>
 
-    The #addChangeValuesToMatch: blocks should grade the string for how close to a match it is, should return a positive number (0.0 to 1.0, but any positive number would work)
+    The #addChangeValuesToMatch: blocks should grade the string for how close to a match it is, should return a positive number (0.0 to 1.0, but any positive number would work).
+
+This is rather crude, better ML is on https://agileartificialintelligence.github.io

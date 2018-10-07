@@ -1,5 +1,6 @@
 tests
 testBestMatch
+	"Test the order of matches"
 	| classifier |
 	classifier := StringClassifier new.
 	classifier addChangeValuesToMatches: [ :string | (string alike: 'Pablo') / 3 ].
