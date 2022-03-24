@@ -14,7 +14,7 @@ Class {
 	#instVars : [
 		'changeValuesToMatches'
 	],
-	#category : 'StringClassifier'
+	#category : #StringClassifier
 }
 
 { #category : #accessing }
@@ -33,7 +33,8 @@ StringClassifier >> bestMatchIndexesFor: aCollection [
 	grades := Array new: aCollection size.
 	bestGrades := Array new: aCollection size.
 	aCollection
-		withIndexDo: [ :string :index | grades at: index put: (self changeValuesToMatchesCollectOn: string) ].
+		withIndexDo:
+			[ :string :index | grades at: index put: (self changeValuesToMatchesCollectOn: string) ].
 	[ bestGrades contains: [ :e | e isNil ] ]
 		whileTrue: [ | max maxRowIndex bestScore bestScoreIndex |
 			maxRowIndex := bestScoreIndex := 1.
@@ -46,7 +47,9 @@ StringClassifier >> bestMatchIndexesFor: aCollection [
 						bestScoreIndex := (grades at: index) indexOf: bestScore ] ].
 			bestGrades at: bestScoreIndex put: maxRowIndex.
 			grades do: [ :scores | scores at: bestScoreIndex put: -100 ].
-			grades at: maxRowIndex put: (Array new: aCollection size withAll: -100) ].
+			grades
+				at: maxRowIndex
+				put: (Array new: aCollection size withAll: -100) ].
 	^ bestGrades
 ]
 
