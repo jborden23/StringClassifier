@@ -1,11 +1,11 @@
 Class {
-	#name : #BasedlineOfStringClassifier,
+	#name : #BaselineOfStringClassifier,
 	#superclass : #BaselineOf,
 	#category : #BaselineOfStringClassifier
 }
 
 { #category : #baselines }
-BasedlineOfStringClassifier >> baseline: spec [
+BaselineOfStringClassifier >> baseline: spec [
 	"baselines"
 
 	<baseline>
