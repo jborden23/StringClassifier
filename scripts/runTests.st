@@ -3,7 +3,7 @@ unitTestsBefore := TestCase withAllSubclasses.
 
 "We load the application"
 [ Metacello new
-    baseline: 'ReinforcementLearning';
+    baseline: 'StringClassifier';
     repository: 'github://jborden23/StringClassifier:main';
     load ] on: MCMergeOrLoadWarning do: [ :warning | warning load ].
 
