@@ -4,7 +4,7 @@
 # StringClassifier
 Simple String classifier in Pharo Smalltalk. It is being used as a testing project for [https://github.com/bergel/AgileVisualizationAPressCode/blob/main/03-02-ContinuousIntegration.txt]. 
 
-This can be loaded with:
+This can be loaded in Pharo with:
 ```
 Metacello new
   baseline:'StringClassifier';
