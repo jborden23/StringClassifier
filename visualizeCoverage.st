@@ -1,3 +1,5 @@
+| shouldClassHaveName classNameHeight packageNameAsRegExp numberOfMethodsToList profiler classSizeScale classColorCoverage m lbl labels titleLabel stream path |
+
 "Loading all the tool suite"
 [ Metacello new 
   baseline: 'Spy2'; 
@@ -32,7 +34,7 @@ classSizeScale := 'NSScale' asClass linear range: #(5 30); domain: { 0 . (profil
 classColorCoverage := 'NSScale' asClass linear range: {Color red . Color black}; domain: { 0 . 100 }.
 m := 'RSMondrian' asClass new.
 m shape labeled: #packageName; color: Color white; borderColor: Color gray.
-m nodes: profiler packages forEach: [ :pak |
+m nodes: profiler packages forEach: [ :pak || someBoxes |
   m shape box 
     size: [ :cls | classSizeScale scale: cls numberOfMethods ];
     color: [ :cls | classColorCoverage scale: cls coverage ];

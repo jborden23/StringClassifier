@@ -1,3 +1,4 @@
+| unitTestsBefore unitTests path stream |
 "We capture all the unit tests in Pharo"
 unitTestsBefore := TestCase withAllSubclasses.
 
@@ -16,7 +17,7 @@ path asFileReference exists ifTrue: [ path asFileReference delete ].
 stream := path asFileReference writeStream.
 
 "We run the unit tests"
-unitTests do: [ :unitTestClass |
+unitTests do: [ :unitTestClass || res |
   res := unitTestClass buildSuite run.
   (res hasFailures or: [ res hasErrors ]) ifTrue: [ stream nextPutAll: 'ERROR: ' ].
   stream nextPutAll: unitTestClass name, ' ', res asString.
