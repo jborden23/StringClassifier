@@ -29,7 +29,7 @@ StringClassifier >> bestMatchIndexesFor: aCollection [
 
 	| grades bestGrades worsePossibleGrade |
 	worsePossibleGrade := -100.
-	aCollection size = changeValuesToMatches size
+	aCollection size = (changeValuesToMatches ifNil: [ #() ]) size
 		ifTrue: [ aCollection isEmpty ifTrue: [ CollectionIsEmpty signal ] ]
 		ifFalse: [ SizeMismatch signal ].
 	grades := Array new: aCollection size.

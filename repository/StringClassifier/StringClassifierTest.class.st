@@ -1,7 +1,7 @@
 Class {
 	#name : #StringClassifierTest,
 	#superclass : #TestCase,
-	#category : 'StringClassifier-tests'
+	#category : #'StringClassifier-tests'
 }
 
 { #category : #tests }
@@ -16,9 +16,9 @@ StringClassifierTest >> testBestMatch [
 		assert: (classifier bestMatchIndexesFor: #('Peter' 'dog')) second equals: 2;
 		should: [ classifier bestMatchIndexesFor: #('Peter') ] raise: SizeMismatch;
 		assert: (classifier bestMatchIndexesFor: #('dog' 'Peter')) first = 2
-			description: 'When arguments are switched, the indexes should be switched';
+			description: 'When arguments are switched, the first index should be switched';
 		assert: (classifier bestMatchIndexesFor: #('dog' 'Peter')) second = 1
-			description: 'When arguments are switched, the indexes should also be switched'
+			description: 'When arguments are switched, the second index should also be switched'
 ]
 
 { #category : #tests }
@@ -46,4 +46,25 @@ StringClassifierTest >> testCollect [
 	self
 		deny: (classifier changeValuesToMatchesCollectOn: 'test') isEmpty;
 		assert: (classifier changeValuesToMatchesCollectOn: 'test') first equals: 3
+]
+
+{ #category : #tests }
+StringClassifierTest >> testFailedMatch [
+	"Test exceptions"
+
+	| classifier |
+	classifier := StringClassifier new.
+	self
+		should: [ classifier bestMatchIndexesFor: #(  ) ]
+		raise: CollectionIsEmpty
+		description: 'Best-Match should not accept empty arguments'.
+	classifier addChangeValuesToMatches: [ :string |
+		(string alike: 'Pablo') / 3 ].
+	classifier addChangeValuesToMatches: [ :string |
+		(string alike: 'cat') / 3 ].
+
+	self
+		should: [ classifier bestMatchIndexesFor: #( 'dog' ) ]
+		raise: SizeMismatch
+		description: 'Best-Match should require matching collection sizes'
 ]
